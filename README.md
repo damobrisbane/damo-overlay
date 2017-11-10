@@ -1,5 +1,7 @@
 # damo_overlay
-custom gentoo overlay
+
+Custom gentoo overlay
+![](/images/gentoo-logo.png)
 
 [Nov 10, 2017]
 
