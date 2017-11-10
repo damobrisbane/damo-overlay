@@ -23,7 +23,7 @@ DEPEND="dev-go/vendorfmt
 
 RDEPEND="${DEPEND}"
 
-pkg_setup() {
+pkg_preinst() {
 	enewgroup fabio
 	enewuser fabio -1 -1 /var/lib/${PN} fabio
 }
