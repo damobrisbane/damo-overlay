@@ -6,7 +6,6 @@ EAPI=6
 inherit golang-build golang-vcs-snapshot user
 
 EGO_PN="github.com/fabiolb/fabio"
-VERSION="1.5.3"
 KEYWORDS="~amd64"
 DESCRIPTION="Zero-conf load balancer/https router for microservices managed by consul"
 HOMEPAGE="http://www.fabio.io"
@@ -34,7 +33,7 @@ src_prepare() {
 	#
 	# -X main.version=... ****shell git*** ... ; breaks ebuild compile
 	#
-	sed -e 's:\$(shell git describe --tags):'${VERSION}':' \
+	sed -e 's:\$(shell git describe --tags):'${PV}':' \
 		-i "${S}/src/${EGO_PN}/Makefile" || die
 }
 
@@ -51,10 +50,6 @@ src_install() {
 
 	dobin fabio
 	popd  || die
-
-	keepdir /etc/fabio.d
-	insinto /etc/fabio.d
-	# doins "${FILESDIR}/"*.json.example
 
 	for x in /var/{lib,log}/${PN}; do
 		keepdir "${x}"

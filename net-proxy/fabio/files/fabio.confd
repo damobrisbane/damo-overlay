@@ -1,9 +1,5 @@
 # /etc/conf.d/fabio: config file for /etc/init.d/fabio
 
-# User and group as which to run
-#FABIO_USER="fabio"
-#FABIO_GROUP="fabio"
-
 # Configuration directory
 #FABIO_HOMEDIR="/var/lib/fabio"
 
@@ -21,12 +17,10 @@
 #FABIO_NICE="0"
 
 # Extra options for fabio
-#FABIO_OPTS=""
-
-#
-# Example config; tcp proxy for syncthing on port 8384, register consul on address other than 127.0.0.1
-#
-#command_args='-proxy.addr ":8384;proto=tcp" -registry.consul.addr "192.168.0.1:8500"'
 # 
+# eg tcp proxy on a (single?) Syncthing service
 #
-command_args=''
+# FABIO_OPTS='-proxy.addr ":8384;proto=tcp" -registry.consul.addr "192.168.0.1:8500"'
+#
+FABIO_OPTS=""
+
