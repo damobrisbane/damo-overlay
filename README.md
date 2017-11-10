@@ -4,7 +4,7 @@ Gentoo custom overlay
 
 [Nov 10, 2017]
 
-fabio ebuild with dependencies, govendor and vendorfmt
+**fabio** ebuild with dependencies, *govendor* and *vendorfmt*
 
 ![Fabio](/images/fabio1.png)
 
