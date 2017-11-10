@@ -6,6 +6,8 @@ Gentoo custom overlay
 
 **fabio** ebuild with dependencies, *govendor* and *vendorfmt*
 
+Shown here out-of-the box install tcp-proxying [Syncthing](https://syncthing.net)
+
 ![Fabio](/images/fabio1.png)
 
 Example Emerge
