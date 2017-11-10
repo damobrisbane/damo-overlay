@@ -1,0 +1,34 @@
+#!/sbin/openrc-run
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+FABIO_USER=${FABIO_USER:-fabio}
+FABIO_GROUP=${FABIO_GROUP:-fabio}
+FABIO_HOMEDIR=${FABIO_HOMEDIR:-/var/lib/fabio}
+FABIO_LOGFILE=${FABIO_LOGFILE:-/var/log/fabio/fabio.log}
+FABIO_UMASK=${FABIO_UMASK:-007}
+FABIO_IONICE=${FABIO_IONICE:-0}
+FABIO_NICE=${FABIO_NICE:-0}
+
+description="A fast, modern, zero-conf load balancing HTTP(S) router for deploying microservices managed by consul"
+command="/usr/bin/fabio"
+command_args="${command_args:-cfg=/etc/fabio.d/default}"
+pidfile="/run/fabio.pid"
+start_stop_daemon_args="--background \
+	--user ${FABIO_USER} \
+	--group ${FABIO_GROUP} \
+	--umask ${FABIO_UMASK} \
+	--make-pidfile \
+	--ionice ${FABIO_IONICE} \
+	--nicelevel ${FABIO_NICE} \
+	--stdout ${FABIO_LOGFILE} \
+	--stderr ${FABIO_LOGFILE}"
+
+depend() {
+	need localmount net
+}
+
+start_pre() {
+	checkpath -q -d -o ${FABIO_USER}:${FABIO_GROUP} ${FABIO_HOMEDIR}
+	checkpath -q -f -o ${FABIO_USER}:${FABIO_GROUP} ${FABIO_LOGFILE}
+}
