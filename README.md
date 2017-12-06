@@ -1,6 +1,6 @@
 ![](/images/gentoo-logo.png)
 
-Gentoo custom overlay
+Gentoo custom overlay, QA'd so please let me know if ebuilds herein do not work for you.
 
 [Nov 10, 2017]
 
